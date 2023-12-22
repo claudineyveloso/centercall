@@ -10,6 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ * <!-- ================== BEGIN BASE CSS STYLE ================== -->
+ 
+ * <!-- ================== END BASE CSS STYLE ================== -->
  *= require_tree .
  *= require_self
  */
+@import 'jsvectormap.min';
+@import 'flatpickr.min';
+@import 'code.min';
+@import 'bootstrap.min';
+@import 'icons.min';
+@import 'app.min';

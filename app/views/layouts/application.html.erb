@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
-    <%= yield %>
+  <body data-layout="horizontal" data-topbar="dark">
+    <% if user_signed_in? %>
+      <header class="ishorizontal-topbar" style="display: block;">
+        <%= render partial: '/shared/navbar' %>
+        <%= render partial: '/shared/topnav' %>
+      </header>
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

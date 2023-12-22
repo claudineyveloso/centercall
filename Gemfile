@@ -52,7 +52,13 @@ gem 'devise'
 gem 'htmlbeautifier'
 gem 'htmlrb', github: 'kiraka/htmlrb', branch: 'main'
 gem 'pagy', '~> 6.2'
+gem 'pundit'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
+
+gem 'rack-attack', '~> 6.7'
+gem 'rack-cors', require: 'rack/cors'
+gem 'rack-mini-profiler', '~> 3.3'
+gem 'rack-timeout', require: 'rack/timeout/base'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

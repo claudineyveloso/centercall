@@ -1,0 +1,8 @@
+<% flash.each do |type, msg| %>
+  <% alert_class = type == "notice" ? "success" : "error" %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert" data-stream-enter-class="animate-in" data-stream-exit-class="animate-out">
+    <i class="mdi mdi-check-all me-2"></i>
+    <%= msg %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>

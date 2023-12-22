@@ -1,0 +1,78 @@
+<div class="col-lg-12">
+  <div class="card">
+    <%= render partial: "shared/card_list", locals: { card_title: 'Usuários', link: new_user_path } %>
+    <div class="card-body">
+      <!-- end card header -->
+      <div id="table-gridjs">
+        <div class="gridjs-head">
+          <div class="gridjs-search">
+          </div>
+          <div class="gridjs-search">
+            <%= form_with url: search_users_path, method: :post do |form| %>
+              <%= form.search_field :filter_user, 
+                                      oninput: 'this.form.requestSubmit()',
+                                      class: "gridjs-input gridjs-search-input", 
+                                      placeholder: "Localizar um usuário..." 
+              %>
+            <% end %>
+          </div>
+          <div class="float-end">
+            <%= link_to new_user_path, class: 'btn btn-primary btn-sm waves-effect waves-light' do %>
+              Adicionar
+            <% end %>
+          </div>
+        </div>
+        <div role="complementary" class="gridjs gridjs-container" style="width: 100%;">
+          <div id='search_results' class="gridjs-wrapper" style="height: auto;">
+            <table role="grid" class="gridjs-table" style="height: auto;">
+              <thead class="gridjs-thead">
+                <tr class="gridjs-tr">
+                  <th data-column-id="user_name" class="gridjs-th gridjs-th-sort" tabindex="0" style="min-width: 84px; width: 300px;">
+                    <div class="gridjs-th-content">Usuário</div>
+                    <button tabindex="-1" aria-label="Sort column ascending" title="Sort column ascending" class="gridjs-sort gridjs-sort-neutral"></button>
+                  </th>
+                  <th data-column-id="email" class="gridjs-th gridjs-th-sort" tabindex="0" style="min-width: 177px; width: 400px;">
+                    <div class="gridjs-th-content">Email</div>
+                    <button tabindex="-1" aria-label="Sort column ascending" title="Sort column ascending" class="gridjs-sort gridjs-sort-neutral"></button>
+                  </th>
+                  <th data-column-id="type" class="gridjs-th gridjs-th-sort" tabindex="0" style="min-width: 228px; width: 150px;">
+                    <div class="gridjs-th-content">Tipo</div>
+                    <button tabindex="-1" aria-label="Sort column ascending" title="Sort column ascending" class="gridjs-sort gridjs-sort-neutral"></button>
+                  </th>
+                  <th data-column-id="actions" class="gridjs-th gridjs-th-sort" tabindex="0" style="min-width: 113px; width: 100px;">
+                    <div class="gridjs-th-content text-center">Ações</div>
+                    <button tabindex="-1" aria-label="Sort column ascending" title="Sort column ascending" class="gridjs-sort gridjs-sort-neutral"></button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="gridjs-tbody">
+                <% @users.each do |user|  %>
+                  <tr class="gridjs-tr" id="<%= dom_id(user) %>" data-stream-enter-class="animate-item-in" data-stream-exit-class="animate-item-out">
+                    <td data-column-id="name" class="gridjs-td"><%= user.user_name %></td>
+                    <td data-column-id="email" class="gridjs-td"><%= user.email %></td>
+                    <td data-column-id="position" class="gridjs-td"><%= user.user_type %></td>
+                    <td class='text-center'>
+                      <%= link_to edit_user_path(user), class: "px-2 text-primary", data: { turbo_frame: "_top" } do %>
+                        <i class="bx bx-pencil font-size-18"></i>
+                      <% end %>
+                      <%= link_to  user_path(user), data: { turbo_method: :delete, turbo_confirm: "Deseja realmente deletar este usuário?"}, class: 'px-2 text-danger' do %>
+                        <i class="bx bx-trash-alt font-size-18"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="gridjs-footer">
+            <div class="gridjs-pagination">
+              <%== pagy_bootstrap_nav(@pagy) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end card body -->
+  </div>
+  <!-- end card -->
+</div>
