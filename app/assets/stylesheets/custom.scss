@@ -1,0 +1,109 @@
+:root {
+  --bs-blue: #4099f3 !important;
+  --bs-indigo: #564ab1 !important;
+  --bs-purple: #5052ba !important;
+  --bs-pink: #e83e8c !important;
+  --bs-red: #ed4b42 !important;
+  --bs-orange: #fe9c41 !important;
+  --bs-yellow: #f0c42b !important;
+  --bs-green: #24ab5e !important;
+  --bs-teal: #050505 !important;
+  --bs-cyan: #4099f3 !important;
+  --bs-white: #fff !important;
+  --bs-gray: #80838b !important;
+  --bs-gray-dark: #3F4452 !important;
+  --bs-gray-100: #fbfafd !important;
+  --bs-gray-200: #f6f5fa !important;
+  --bs-gray-300: #eff0f2 !important;
+  --bs-gray-400: #e2e5e8 !important;
+  --bs-gray-500: #7d8287 !important;
+  --bs-gray-600: #80838b !important;
+  --bs-gray-700: #545965 !important;
+  --bs-gray-800: #3F4452 !important;
+  --bs-gray-900: #1a1823 !important;
+  --bs-primary: #5052ba !important;
+  --bs-secondary: #80838b !important;
+  --bs-success: #24ab5e !important;
+  --bs-info: #4099f3 !important;
+  --bs-warning: #f0c42b !important;
+  --bs-danger: #ed4b42 !important;
+  --bs-pink: #e83e8c !important;
+  --bs-light: #f6f5fa !important;
+  --bs-dark: #1a1823 !important;
+  --bs-white: #fff !important;
+  --bs-purple: #5052ba !important;
+  --bs-primary-rgb: 80, 82, 186 !important;
+  --bs-secondary-rgb: 128, 131, 139 !important;
+  --bs-success-rgb: 36, 171, 94 !important;
+  --bs-info-rgb: 64, 153, 243 !important;
+  --bs-warning-rgb: 240, 196, 43 !important;
+  --bs-danger-rgb: 237, 75, 66 !important;
+  --bs-pink-rgb: 232, 62, 140 !important;
+  --bs-light-rgb: 246, 245, 250 !important;
+  --bs-dark-rgb: 26, 24, 35 !important;
+  --bs-white-rgb: 255, 255, 255 !important;
+  --bs-purple-rgb: 80, 82, 186 !important;
+  --bs-white-rgb: 255, 255, 255 !important;
+  --bs-black-rgb: 0, 0, 0 !important;
+  --bs-body-color-rgb: 84, 89, 101 !important;
+  --bs-body-bg-rgb: 246, 245, 250 !important;
+  --bs-font-sans-serif: "Source Sans Pro", sans-serif !important;
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0)) !important;
+  --bs-body-font-family: Source Sans Pro, sans-serif !important;
+  --bs-body-font-size: 0.9375rem !important;
+  --bs-body-font-weight: 400 !important;
+  --bs-body-line-height: 1.5 !important;
+  --bs-body-color: #545965 !important;
+  --bs-body-bg: #f6f5fa !important
+}
+
+.mdi-set,
+.mdi:before {
+  margin-top: 20px;
+}
+
+.color-email {
+  color: #e2e5e8
+}
+
+.mb-1-25 {
+  margin-bottom: 1.25rem !important;
+}
+
+.header-end-session a {
+  color: #80838b
+}
+
+.header-end-session a:hover {
+  color: #eeeff1
+}
+
+.btn-check:focus + .btn, .btn:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.ml5{
+  margin-left: 5px;
+}
+
+.text-danger-form{
+  color: #ca4440 
+}
+
+.mdi-set, .mdi:before {
+  margin-top: 0px !important;
+}
+
+.mt-0 {
+  margin-top: 0px !important;
+}
+
+.invalid{
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 87.5%;
+  color: #ed4b42;
+}
+

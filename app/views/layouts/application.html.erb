@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "jsvectormap.min", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "flatpickr.min", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "code.min", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "bootstrap.min", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "icons.min", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "app.min", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
-  <body>
+  <body data-layout="horizontal" data-topbar="dark">
     <%= yield %>
   </body>
 </html>
