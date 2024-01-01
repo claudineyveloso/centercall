@@ -1,45 +1,40 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+
 import { useForm } from 'react-hook-form';
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import AuthContext from "../../context/AuthProvider";
 
 const createUserFormSchema = z.object({
-  userName: z.string().nonempty('O usuário é obrigatório'),
+  email: z.string().email({ message: "Endereço de email inválido" }),
   password: z.string().nonempty('A senha é obrigatório'),
 })
 
 function Login() {
-  const { setAuth } = useContext(AuthContext);
+  const { authenticated, handleLogin } = useContext(AuthContext)
+  //const { setAuth } = useContext(AuthContext);
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   const [output, setOutput] = useState('');
   const { register, handleSubmit, formState: {errors} } = useForm({
     resolver: zodResolver(createUserFormSchema)
   })
 
   async function createUser(data) {
-    debugger
-    const response = await axios.post('/api/v1/login', { "user": { "user_name": data.user_name, "password": data.password }  })
-     .then((response) => {
-      console.log(response.data)
-      //setOutput(respponse.data.message)
-     }).catch(function(err) {
-      console.log('Apresentação do erro', err);
-      return err;
-     })
-    
-    //   console.log(response.data); 
-    // setOutput(JSON.stringify(data, null, 2))
-  }
-
-
-  const handleSubmits = async (e) => {
-    e.preventDefault();
-    console.log(userName);
+    const url = 'http://localhost:3000'
+    handleLogin(data.email, data.password)
+    // const response = await axios.post(`${url}/api/v1/login`, { "user": { "email": data.email, "password": data.password }  })
+    //  .then((response) => {
+    //   localStorage.setItem("voxxNettUseToken",response.data.token );
+    //   console.log(response.data)
+    //   navigate("/dashboard", { replace: true });
+    //  }).catch(function(err) {
+    //   console.log('Apresentação do erro', err);
+    //   return err;
+    //  })
   }
 
   const togglePassword = () => {
@@ -78,8 +73,8 @@ function Login() {
                               className="form-control"
                               id="input-username" 
                               autoComplete='off'
-                              placeholder="Usuário" 
-                              {...register('userName')}
+                              placeholder="Email" 
+                              {...register('email')}
                             />
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-user">
                               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -87,7 +82,7 @@ function Login() {
                             </svg>
                           </div>
                           <div className="invalid">
-                            {errors.userName && <span>{errors.userName.message}</span>}
+                            {errors.email && <span>{errors.email.message}</span>}
                           </div>
                         </div>
                         <div className="mb-1">

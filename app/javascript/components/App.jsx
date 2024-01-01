@@ -1,16 +1,23 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-import Login from '../pages/login';
-import RecoverPwd from '../pages/recoverpwd';
+import React, { useContext } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import RoutesSwitch from './routes';
+import { AuthProvider } from '../context/AuthContext';
+import history from './history';
 
 function App() {
+  
+  console.log('Claudiney Veloso')
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login/>}/>
-        <Route path="/recoverPwd" element={<RecoverPwd/>}/>
-      </Routes>
-    </Router>
+    <>
+      <AuthProvider>
+        <Router history={history}>
+            <RoutesSwitch />
+        </Router>
+      </AuthProvider>
+    </>
+      
+
+    
   )
 }
 
